@@ -1,10 +1,12 @@
 function checkAge() {
     let ageInput = document.getElementById("input").value;
+    let mainOutput = document.getElementById("main-output");
     let altOutput = document.getElementById("alt-output");
 
-    // Clear previous output
+    // Clear previous outputs
     altOutput.innerHTML = "";
     altOutput.style.display = "none";
+    mainOutput.style.display = "none";
 
     // Check if input is a number and not a decimal
     let age = parseFloat(ageInput);
@@ -22,8 +24,8 @@ function checkAge() {
         altOutput.innerHTML = `<p>Please enter a whole number, decimals are not valid.</p>`;
         altOutput.style.display = "block";
     } else if (age >= 18 && age <= 120) {
-        // Valid age, redirect to the homepage
-        window.location.href = "home.html";
+        // Show content if age is appropriate
+        mainOutput.style.display = "block";
     } else {
         // Age outside valid range
         altOutput.innerHTML = `<p>You may not see the content.</p>`;
